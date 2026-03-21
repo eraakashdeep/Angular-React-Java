@@ -1,0 +1,85 @@
+// Java
+Q1. Why string is immutable in java? (Can't be changed after creation.)
+Ans-> To improve security, performance and thread safety. (Security- prevent sensitive data like pwds, file paths from being altered).
+
+Q2. Expain Java 8 Features ?
+Ans->  Lambda expressions (ex:- (a,b) -> a+b), 
+       Functional Interfaces(interface with only one abstract method, ex:- Runnnable, Comparator)
+       Streams APi (map,filter,reduce, ex:- list.stream().filter(x -> x>10).collect(...))
+       Date and Time api(java.time), ex:- LocalDate,LocalTime
+       Method References ex:- System.out::println
+
+Q3. Difference between fail-fast and fail-safe iterators ?
+Ans-> Fail-fast - Fast but unsafe (throws exception), works on original collection, ex:- ArrayList, HashMap
+      Fail-safe - Safe but uses extra memory (no exception), works on copy collection, ex:- ConcurrentHashMap, CopyOnWriteArrayList
+
+Q4. Difference betwn equals() method and == operator ?
+Ans-> equals - checks value equality (if overridden)
+      == - checks reference equality
+
+Q5. Explain use of final, finally, and finalize keywords ?
+Ans-> final - used for variables, classes, methods
+      finally - A block used with try-catch
+      finalize - called before garbage collection (deprecated)
+
+Q6. How does hashMap work internally ?
+Ans-> HashMap use hashing to store key-value pairs in buckets, handles collisions using linked list/tree and retrieves values using hashCode() + equals(). 
+
+Q7. Difference betwn ArrayList, Vector, and LinkedList ?
+Ans-> ArrayList - Fast, Not Thread-safe, dynamic array ds
+      Vector - Thread-safe but slower, dynamic array ds
+      LinkedList - Best for frequent insert/delete operations, doubly linked list ds
+
+Q8. Explain the concept of serializable and how to exclude a variable from serialization ?
+Ans-> serializable is used to converts object to byte stream.(this allows object to saved to a file, sent over network, or stored)
+      transient keyword - prevents a variable from being serialized.
+
+Q9. Difference between method overloading and method overriding ?
+Ans-> overloading - same method, different parameters (compile-time)
+      overriding - same method, same parameters (runtime,inheritance)
+
+Q10. What is a JIT compiler and thread ?
+Ans-> Thread - process which used for Concurrent execution, created using thread-class or runnable interface.
+      JIT(Just-In-Time) Compiler - JIT is part of JVM and it converts bytecode into native machine code at runtime.
+
+ // Spring Boot
+
+ Q11. What is @Controller and @RestController ?
+ Ans-> @Controller - returns views. Need @ResponseBody to return JSON.
+       @RestController - return data(JSON/XML) directly. Combined @Controller + @ResponseBody
+
+Q12. Explain use of @Qualifier annotation in Spring ?
+Ans-> @Qualifier is used to specify the exact bean to inject when multiple beans of the same type exist. Ex: Inject Car1 bean, not Car2.
+Note: - Spring Bean is object and managed by spring container using IOC and dependecy Injection.
+
+Q13. How does spring boot application start internally ?
+Ans-> Spring Boot starts with SpringApplication.run(), performs auto configuration, component scanning, initializes the context and finally starts the embedded server.
+
+Q14. How does services communicate in a microservices architecture ?
+Ans-> RestApI's(http), message queues / Event Streaming, Api gateway(central entry point).
+- sync - request-response and Aysnc -event driven
+
+Q15. What are the key components of a RESTful API ?
+Ans-> RESTful API consists of resources(url), Http methods,header, status code and request/response bodies to enables communication between client and server.
+
+Q16. Expain @Transactional propagation in Spring ?
+Ans-> Propogation defines how Transactions are handle between method calls, with REQUIRED(default) and REQUIRES_NEW being most commonly used.
+     - It defines how transactions behaves when one method calls another.
+
+// Hibernate & Database
+
+Q17. What is Difference between get() and load() in Hibernate ?
+Ans-> get() - return null if not found, fetch immediately.
+      load() - return proxy, throw exception if not found.
+
+Q18. Explain hibernate caching (1st Level vs 2nd Level) ?
+Ans-> 1st Level - session-level, default, not shared. 
+      2nd Level - sessionFactory-Level, optional, shared across sessions.
+
+Q19. What is the N+1 select problem in JPA and how do you fix it ?
+Ans-> N+1 problems occurs when one query loads parent and multiple queries load children; fix it using fetch joins, entity graphs, or batch fetching.
+
+Q20. Explain difference between Drop, Delete and Truncate ?
+Ans-> Delete - removes rows (can rollback)
+      Truncate - removes all rows fast (no rollback)
+      Drop - removes entire table structure + data
