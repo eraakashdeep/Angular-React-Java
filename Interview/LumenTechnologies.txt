@@ -1,0 +1,13 @@
+Role :- Software Development Consultant Level 1 (4-6 Years), 1hr
+Skill:- Java, Oracle, Api, Vue.js 
+
+Question
+
+1> Write java code for Even and Odd Numbers using Threads Sequentially ?
+2> What is Static method ?
+3> Create a counter increment decrement button using Vue.js ?
+4> Create a get api fetch the database employee id ?
+5> Largest number code Java :-
+   Input: nums = [10,2] output: "210"
+   Input: nums = [3,30,34,5,9] output: "9534303"
+6> Cypress, TDD, Aspect in Spring Boot Dec

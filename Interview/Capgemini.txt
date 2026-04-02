@@ -1,0 +1,30 @@
+Role:- Application Developer - Java-React-Fullstack - Level 1 - 1hr
+Skill:- Java, Spring Boot, Microservices, React
+
+Question
+
+1> 
+2> What are the guidelines you got to follow when you are designing a microservice?
+3> One of my service getting breakage, it's got break. It's throw some error, okay? 
+   so some unexpected error. How do i prevent this one?
+4> Derived some variable values into my Spring Boot Applications?
+5> Explain what is actuators in Spring Boot?
+6> Wrapper Class ?
+7> That's Super class that again we define that any classes that's 
+   inside parent. You know, i wonder what is this one class which is ?
+8> Difference between string and string buffer ?
+9> Integration in your application, like in your project, in spring boot.
+   want to tell specically on backend side?
+10> How would you identify and pick the right thing ...microservices for multiple services?
+11> What are the challences face in microservices ?
+12> What are the transaction, saga?
+13> How you find the log or error in backend rest api ?
+14> AutoConfiguration ?
+15> How Api call has been triggered ?
+   (controller-service-repository-response)
+16> Try to navigate to another page, so immediately i have to stop that API?
+17> Lifecycle of react & performance optimization?
+18> OOPs concept in real time ? Hash map.
+19> Write a java code like [1,2,3,5]  ---missing find out..
+20> Write a java code like [10,2,8,12,18,10] = 20,...2 number will add 20 like that.
+21> Find First Non-Repeating Character in a String Use collection.
