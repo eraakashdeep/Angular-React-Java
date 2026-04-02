@@ -3,7 +3,7 @@ Skill:- Java, Spring Boot, Microservices, React
 
 Question
 
-1> 
+1> Intro and breif abt project domain and techstack?
 2> What are the guidelines you got to follow when you are designing a microservice?
 3> One of my service getting breakage, it's got break. It's throw some error, okay? 
    so some unexpected error. How do i prevent this one?

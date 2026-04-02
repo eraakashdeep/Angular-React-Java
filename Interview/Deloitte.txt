@@ -1,4 +1,4 @@
-R1 - 23/01/2026 (1 hr) ---Angular+Java
+me - R1 - 23/01/2026 (1 hr) ---Angular+Java
 
 Question
 
@@ -17,3 +17,38 @@ Question
    Div A should be bottom side of the screen
    Div B should be top side of the screen
 7> more on ...
+
+Rakesh
+
+deloite:
+1)//sorted array of integer, 1,2,4,6,8,9,14,16
+find sum of two index whose sum is 10, ie 1+9, 
+give me time complexity and explanation
+
+2)// //sorted array of integer-> 1,2,4,6,8,9,14,16
+// //sorted array of integer -> 15,18,19
+merge both arrays in ascending order, explain the time complexity, can we optimise this problem
+
+3)write merge sort logic and explain
+
+....
+
+1)//create list of string and 4,5 fruits
+
+List<String> fruits = List.of("mango", "apple", "Guava, "banana", "Orange"};
+
+2) copy the content of fruits in fruitCopy (shallow and deeep copy method) --> I was not able to do List<String> fruitCopy List.of("mango", "apple", "Guava, "banana", "Orange");
+
+3) Let say we have random generator which will generate indexes, you need to exlude the values present in random index and collect the rest int index = Math.random().parseInt(); List<String> randomRemove = fruitCopy.Stream().filter(x -> Ix.indexof(x).contains(index)).collect(Collectors.toList());
+
+4) I want you to print the value with present and removed, from the fruits list,
+
+//List<String> resultantFruit = fruits.Stream().filter(val-> randomRemove.contains(val)).collect(Collectors.toList()); how
+
+5) what is aspect Oriented programmming
+
+7) How you handle cross browser thing like in edge, firefox, chrome
+
+8) what is lazy loading in angular
+
+9) explain usage of postgres and mongo in different context

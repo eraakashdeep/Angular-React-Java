@@ -1,0 +1,43 @@
+1)Oops concept
+2)Java 8 features
+3)what is lamda expression, functional Interface
+4)Stream api, --> terminal and intermediate operation
+5)How hashMap works in java(internal working of HashMap)
+6)How you handle exception in java -> restControllerAdvice, ExceptionHandler
+7)What is GC(garbage collection)
+8)Explain threading concept (CompletableFuture, ExecutorService)
+9)what is optional Variable
+10)Difference between checked and unchecked exceptions.
+11)Difference between fail-fast and fail-safe iterators.
+12)What is the difference between Comparable and Comparator?
+
+13. Spring Framework & Spring Boot
+- Spring Core (Dependency Injection, AOP)
+- Spring Boot (Auto-configuration, Microservices support)
+- Spring Security (OAuth2, JWT)
+- Spring Data (JPA, Hibernate integration)
+- Spring Cloud (Netflix OSS, Circuit Breakers)
+- What is the difference between @Configuration, @Bean, and @Component annotations?
+
+14. Microservices Architecture
+- design pattern(Singleton, factory, SAGA)
+- Service discovery (Eureka, Consul)
+- Load balancing, distributed tracing, and circuit breaking
+- API Gateway
+- Asynchronous communication with Kafka, RabbitMQ
+
+15. RESTful Web Services
+- REST principles, building APIs
+- JSON/XML handling
+- API versioning, OpenAPI/Swagger documentation
+
+
+Testing framework:
+-Jnits(Mockito)  ,, for angular -> KARMAJS
+
+Deployment:
+-Jenkins pipeline
+
+LoadBalancing
+-Spring cloud load balancer
+Displaying image.png.

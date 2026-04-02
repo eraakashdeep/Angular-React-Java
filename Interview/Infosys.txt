@@ -1,0 +1,28 @@
+Rakesh
+1)life cycle of angular/react
+2)what are position in html
+3)what are semantics in html
+4)how you connect your application, ie frontend backend
+5)which version of angular you worked on?
+6)Explain the feature of javascript
+
+
+
+1)which version of java you have used
+2)what are java 8 features
+3)abstract method and default method
+4)cycle cycle of spring framework
+5)How you connect to your DB in spring framework
+6) Explain your working project in spring boot artectuture you have used
+7)How you call rest api in your project
+8)If one service is down how you handle it in your project
+9)How your application is handling Load balancing
+10)Suppose we have two beans of same type how you handle it in spring framework
+11)are you aware of design pattern if yes which one you have used in your project
+12)Explain singleton design pattern
+13)By default spring bean is singleton or prototype
+14)write code for singleton design pattern in java
+15)Write code to find even number using stream api
+16)What are beans and how do you create a bean in spring framework
+17)How you handle exception in spring boot
+18)explain how you deploy your application -> CI/CD

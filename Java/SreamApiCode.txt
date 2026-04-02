@@ -1,0 +1,214 @@
+// 1. Reverse String
+String reversed = new StringBuilder(str).reverse().toString();
+
+// 2. Find Duplicates
+list.stream()
+    .filter(n -> Collections.frequency(list, n) > 1)
+    .collect(Collectors.toSet());
+
+// 3. First Non-Repeated Character
+char c = str.chars()
+    .mapToObj(ch -> (char) ch)
+    .filter(ch -> str.indexOf(ch) == str.lastIndexOf(ch))
+    .findFirst().orElse(null);
+
+// 4. Count Character Occurrence
+Map<Character, Long> map = str.chars()
+    .mapToObj(ch -> (char) ch)
+    .collect(Collectors.groupingBy(ch -> ch, Collectors.counting()));
+
+// 5. Sort Objects
+list.stream().sorted(Comparator.comparing(Employee::getSalary)).toList();
+
+// 6. Max Number
+list.stream().max(Integer::compare).get();
+
+// 7. Min Number
+list.stream().min(Integer::compare).get();
+
+// 8. Sum
+list.stream().mapToInt(Integer::intValue).sum();
+
+// 9. Even Numbers
+list.stream().filter(n -> n % 2 == 0).toList();
+
+// 10. Odd Numbers
+list.stream().filter(n -> n % 2 != 0).toList();
+
+// 11. Uppercase
+list.stream().map(String::toUpperCase).toList();
+
+// 12. Lowercase
+list.stream().map(String::toLowerCase).toList();
+
+// 13. Flatten List
+list.stream().flatMap(List::stream).toList();
+
+// 14. Second Highest
+list.stream().sorted(Comparator.reverseOrder()).skip(1).findFirst().get();
+
+// 15. Remove Duplicates
+list.stream().distinct().toList();
+
+// 16. Longest String
+list.stream().max(Comparator.comparing(String::length)).get();
+
+// 17. Group By
+list.stream().collect(Collectors.groupingBy(Employee::getDept));
+
+// 18. Partition Even/Odd
+list.stream().collect(Collectors.partitioningBy(n -> n % 2 == 0));
+
+// 19. Word Frequency
+Arrays.stream(str.split(" "))
+    .collect(Collectors.groupingBy(w -> w, Collectors.counting()));
+
+// 20. Join Strings
+list.stream().collect(Collectors.joining(", "));
+
+// 21. Contains Duplicates
+boolean hasDup = list.size() != list.stream().distinct().count();
+
+// 22. Common Elements
+list1.stream().filter(list2::contains).toList();
+
+// 23. Sort Map by Value
+map.entrySet().stream()
+   .sorted(Map.Entry.comparingByValue())
+   .forEach(System.out::println);
+
+// 24. List to Map
+list.stream().collect(Collectors.toMap(Employee::getId, e -> e));
+
+// 25. Highest Salary
+list.stream().max(Comparator.comparing(Employee::getSalary)).get();
+
+// 26. Skip & Limit
+list.stream().skip(2).limit(5).toList();
+
+// 27. Palindrome
+boolean isPal = str.equals(new StringBuilder(str).reverse().toString());
+
+// 28. Missing Number (1–n)
+int missing = IntStream.rangeClosed(1, n).sum() - Arrays.stream(arr).sum();
+
+// 29. Merge Lists
+Stream.concat(list1.stream(), list2.stream()).toList();
+
+// 30. Count Words
+long count = Arrays.stream(str.split(" ")).count();
+
+// 31. Starts with Digit
+list.stream().filter(n -> String.valueOf(n).startsWith("1")).toList();
+
+// 32. Unique Characters
+str.chars().mapToObj(c -> (char) c).distinct().toList();
+
+// 33. Parallel Stream
+list.parallelStream().forEach(System.out::println);
+
+// 34. Average
+list.stream().mapToInt(Integer::intValue).average().getAsDouble();
+
+// 35. Even Squares
+list.stream().filter(n -> n % 2 == 0).map(n -> n * n).toList();
+
+// 36. Array to List
+Arrays.stream(arr).toList();
+
+// 37. Iterate Map
+map.forEach((k, v) -> System.out.println(k + ":" + v));
+
+// 38. Remove Nulls
+list.stream().filter(Objects::nonNull).toList();
+
+// 39. Sort by Length
+list.stream().sorted(Comparator.comparing(String::length)).toList();
+
+// 40. findAny
+list.stream().findAny().orElse(null);
+
+// 41. findFirst
+list.stream().findFirst().orElse(null);
+
+// 42. allMatch
+list.stream().allMatch(n -> n > 0);
+
+// 43. anyMatch
+list.stream().anyMatch(n -> n > 5);
+
+// 44. noneMatch
+list.stream().noneMatch(n -> n < 0);
+
+// 45. Map Keys to List
+new ArrayList<>(map.keySet());
+
+// 46. Map Values to List
+new ArrayList<>(map.values());
+
+// 47. Concatenate Streams
+Stream.concat(s1, s2).toList();
+
+// 48. Distinct Elements
+list.stream().distinct().toList();
+
+// 49. Create Stream
+list.stream();
+
+// 50. Infinite Stream
+Stream.iterate(0, n -> n + 1).limit(10).forEach(System.out::println);
+
+
+
+Question
+
+ 1.Reverse a String using Java 8 --
+ 2. Find Duplicate Elements in a List
+ 3. Find First Non-Repeated Character in a String
+ 4. Count Occurrence of Characters in a String
+ 5. Sort a List of Objects using Comparator
+ 6. Find Maximum Number in a List
+ 7. Find Minimum Number in a List
+ 8. Calculate Sum of Elements in a List
+ 9. Filter Even Numbers from a List
+ 10. Filter Odd Numbers from a List
+ 11. Convert List of Strings to Uppercase
+ 12. Convert List of Strings to Lowercase
+ 13. Flatten a List of Lists
+ 14. Find Second Highest Number in a List
+ 15. Remove Duplicates from a List
+ 16. Find Longest String in a List
+ 17. Group Elements by Property using groupingBy
+ 18. Partition Numbers into Even and Odd
+ 19. Find Frequency of Each Word in a Sentence
+ 20. Join List of Strings with Delimiter
+ 21. Check if List Contains Duplicates
+ 22. Find Common Elements Between Two Lists
+ 23. Sort a Map by Values
+ 24. Convert List to Map
+ 25. Find Employee with Highest Salary
+ 26. Skip and Limit Elements in Stream
+ 27. Check if a String is Palindrome
+ 28. Find Missing Number in an Array
+ 29. Merge Two Lists using Streams
+ 30. Count Words in a String
+ 31. Find Numbers Starting with Specific Digit
+ 32. Extract Unique Characters from String
+ 33. Use Parallel Stream for Processing
+ 34. Find Average of Numbers in a List
+ 35. Find All Even Numbers and Their Squares
+ 36. Convert Array to List using Streams
+ 37. Iterate Map using forEach and Lambda
+ 38. Filter Null Values from List
+ 39. Sort Strings by Length
+ 40. Find Any Matching Element using findAny
+ 41. Find First Element using findFirst
+ 42. Check All Match Condition in List
+ 43. Check Any Match Condition in List
+ 44. Check None Match Condition in List
+ 45. Convert Map Keys to List
+ 46. Convert Map Values to List
+ 47. Concatenate Two Streams
+ 48. Find Distinct Elements from List
+ 49. Create Stream from Collection
+ 50. Generate Infinite Stream using iterate

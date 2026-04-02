@@ -1,0 +1,107 @@
+Me & Rakesh
+
+// 1)List<String> words = Arrays.asList("apple", "banana", "cherry");
+ 
+//         // Convert each word into a stream of characters and flatten it
+// Output: [a, p, p, l, e, b, a, n, a, n, a, c, h, e, r, r, y]
+
+
+
+List<String> words = Arrays.asList("apple", "banana", "cherry");
+
+List<Character> result = words.stream()
+        .flatMap(word -> word.chars().mapToObj(c -> (char) c))
+        .collect(Collectors.toList());
+
+System.out.println(result);
+
+
+
+
+
+// 2)int[] arr = {3,1,2,4,6,5,8,9,3,1,2}
+// Please remove duplicates and return in descending order without using java predefined methods.
+
+public class RemoveDuplicatesDesc {
+
+    public static void main(String[] args) {
+
+        int[] arr = {3,1,2,4,6,5,8,9,3,1,2};
+        int n = arr.length;
+
+        // Step 1: Remove duplicates manually
+        int[] temp = new int[n];
+        int size = 0;
+
+        for (int i = 0; i < n; i++) {
+            boolean isDuplicate = false;
+
+            for (int j = 0; j < size; j++) {
+                if (arr[i] == temp[j]) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+
+            if (!isDuplicate) {
+                temp[size++] = arr[i];
+            }
+        }
+
+        // Step 2: Sort in descending order (Bubble Sort)
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (temp[i] < temp[j]) {
+                    int swap = temp[i];
+                    temp[i] = temp[j];
+                    temp[j] = swap;
+                }
+            }
+        }
+
+        // Step 3: Print result
+        for (int i = 0; i < size; i++) {
+            System.out.print(temp[i] + " ");
+        }
+    }
+}
+
+
+   
+
+// 3)Hashmap and hashset internal working mechanism
+
+HashMap – Internal Working (Short)
+
+Stores data as key–value pairs
+
+Internally uses array of buckets
+
+Key → hashCode() → bucket index
+
+If multiple keys map to same index → collision
+
+Java 7 → LinkedList
+
+Java 8+ → Red-Black Tree (after 8 entries)
+
+Uses equals() to identify the correct key
+
+Average time complexity: O(1)
+
+🔹 HashSet – Internal Working (Short)
+
+Stores only unique values
+
+Internally backed by HashMap
+
+Element stored as key, dummy object as value
+
+Duplicates prevented using hashCode() + equals()
+
+No insertion order maintained
+
+🔹 One-Line Interview Answer
+
+HashMap stores key-value pairs using hashing and handles collisions with LinkedList 
+or Tree, while HashSet internally uses HashMap to store unique elements as keys.
