@@ -1,0 +1,14 @@
+Java React Fullstack
+
+Question
+1> Is constructor can be declared as final in Java?Why n give me scenrio where can use
+2> Annotation in Spring Boot ?
+3> Name of inbuilt functional interfaces in Java8?
+4> When we choose a put method for inserting the data in hash map, so behind scences we are calling
+   two methods, may i know the name of?
+5> Singleton class in java how located?
+6> Can you tell what are transactional propagation constants?
+7> Hibernate n+1
+8> Find Longest unique substring here , String s = abacdafagh
+9> Repository dependencies issue and how check the logs?
+10> completableFuture Ans- multithreading like
