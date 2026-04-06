@@ -1,2 +1,2 @@
-# angular
-Interview Preparation for Javascript &amp; Coding &amp; Angular asked question
+# Java-React
+Interview Preparation for Java &amp; Coding &amp; React asked question
