@@ -1,0 +1,309 @@
+//Java
+
+Q1. Why String is immutable in java ? (value Can't be changed after creation or created and string is not designed for modification.)
+Ans-> To improve security, performance, caching and thread safety. (Security - prevent sensitive data like pwds, file paths from being altered.)
+
+Q2. Difference between String and StringBuffer ?
+Ans-> String : immutable, Stored in String Pool, Any Changes -> new object (value can't be changed once created)
+      String Buffer : mutable, Changes happen in same object, Thread-safe(synchronized) (It can be modified)
+
+      Ex:- 
+      String s = "hello";
+      s.concat(" world"); // creates new object
+
+      StringBuffer sb = new StringBuffer("hello");
+      sb.append(" world"); //modifies same object
+
+Q3. Difference between fail-fast and fail-safe iterators ?
+Ans-> Fail-fast : Fast but unsafe (throws exception), works on original collection (ex:- ArrayList, HashMap)
+      Fail-safe : Safe but uses extra memory (no exception), works on copy collection (ex:- CopyOnWriteArrayList, ConcurrentHashMap)
+
+Q4. Difference betwn equals() method and == operator ?
+Ans-> equals() : compares value or content equality (if overridden)
+      == : compares reference equality
+
+      ex: new String("a") == new String("a)  //false
+
+Q5. Explain use of final, finally, and finalize keywords ?
+Ans-> final - used for variables, classes, methods or constant
+      finally - A block used with try-catch or cleanup block
+      finalize - called before garbage collection (deprecated Java9+) or GC method
+
+Q6. Is constructor can be declared as final in Java? Why n give me scenrio where can use?
+Ans-> No, constructors cannot be declared final because they are not inherited or overridden.
+      If we want to control object creation, we use private constructors 
+      (like in Singleton pattern) or make the class final to prevent inheritance.
+
+Note:
+- final is used to prevent overriding.
+- Constructors are never inherited or overridden, so final has no meaning for them.
+- That’s why Java doesn’t allow final constructors at all.
+- private constructor (Singleton [You don’t want multiple objects] / Utility class [You want only static methods (utility classes like Math)])
+class DatabaseConnection {
+    private DatabaseConnection() {
+        // prevent object creation
+    }
+}
+- final class (not constructor!)
+final class ImmutableConfig {
+    // cannot be extended
+}
+
+Q7. Can we override private methods in java ?
+Ans-> No, we cannot override a private method in Java. A private method is not visible 
+to subclasses, so it cannot be inherited & if a method isn’t inherited, it cannot be overridden.
+
+Q8. Can we override static method ? what is static method.
+Ans-> No, Static methods cannot be overridden in Java. [they are hidden, not overridden.]
+
+Note: 
+- Static methods belong to the class, not the object.
+- Overriding works on runtime polymorphism (objects).
+- Static methods are resolved at compile time, so no overriding.
+- Static Keyword used for variables, methods, blocks, nested classes.
+ex: public class Parent {
+    public static void show() {
+        System.out.println("Parent");
+    }
+}
+
+public class Child extends Parent {
+    public static void show() {
+        System.out.println("Child");
+    }
+}
+
+Parent obj = new Child();
+obj.show();  // Output: Parent ➡️ Even though object is Child, it calls Parent method ➡️ This is method hiding, not overriding.
+
+Q9. what are default methods in java how they are helping us?
+Ans-> Default methods are methods defined inside an interface with a body, using the default keyword. They were introduced in 
+      Java 8 to allow interfaces to have method implementations
+
+Q10. OOPs concept in real time ?
+Ans-> 
+a. Encapsulation (Data Hiding) : it helps in data security and controlled access using getters/setters.
+ex: In a banking system, account balance is private, You access it via methods like deposit() / withdraw() 
+b. Abstraction (Hiding complexity) : it reduces complexity and improves maintainability by exposing only required features. 
+ex: Using a car — you drive without knowing engine internals
+c. Inheritance (Reusability) : One class inherits properties of another 
+ex: Employee → Manager, Developer
+class Employee { void work() {} }
+class Developer extends Employee { void code() {} }
+d. Polymorphism (Many forms) : Same method, different behavior
+ex: Payment system → pay() behaves differently for UPI / Card / NetBanking
+
+Note: For example, in a payment system, we use abstraction to define payment methods, 
+      inheritance to extend different payment types, encapsulation to secure transaction data, 
+      and polymorphism to process payments dynamically.
+
+Q11. Difference between method overloading and method overriding ?
+Ans-> overloading - same method, different parameters (compile-time)
+      overriding - same method, same parameters (runtime,inheritance)
+
+Q12. Wrapper Class ?
+Ans-> It is used to convert primitive data types into objects.
+primitive : int, double, char, boolean
+wrapper class : Integer, Double, Character, Boolean
+ex: In a payment or order system, IDs or values are stored in collections:
+Map<Integer, String> orders = new HashMap<>(); // You must use Integer, not int.
+
+Q13. That's Super class that again we define that any classes that's 
+   inside parent. You know, i wonder what is this one class which is ?
+Ans-> A Superclass is a prent class whose properties and methods are inherited by another class, 
+      which is called a subclass (helps in code Reusability and supports inheritance in java)
+
+Note: Superclass - parent class, subclass- child class, uses extends keyword, promotes code reuse, can override methods(runtime polymorphism)
+ex: class Animal{
+    void eat(){
+        System.out.println("Eating");
+    }
+}
+class Dog extends Animal{
+    void bark(){
+        System.out.println("Barking");
+    }
+}
+
+Q14. Difference betwn ArrayList, Vector, and LinkedList ?
+Ans-> ArrayList - Fast read, Not Thread-safe, dynamic array ds
+      Vector - Thread-safe but slower, dynamic array ds
+      LinkedList - fast insert/delete operations, doubly linked list ds.
+
+Q15. Abstract Class vs Interface
+Ans-> Abstract Class : multiple methods, state allowed
+      Interface : Pure Abstraction, no state
+
+Q16. HashMap vs ConcurrentHashMap
+Ans-> HashMap : Not thread-safe , faster, allows null
+      ConcurrentHashMap : thread-safe, slightly slower, no null.
+
+Q17. How does hashMap works internally ?
+Ans-> a. Hash Keyword b. Calculate index c. Store in bucket d. collision -> LinkedList/tree
+Note: HashMap use hashing to store key-value pairs in buckets, handles collisions using linked list/tree and retrieves values using hashCode() + equals().
+
+Q18. Explain the concept of serializable and how to avoid or exclude a variable from serialization ?
+Ans-> serializable is used to converts object to byte stream.(this allows object to saved to a file, sent over network, or stored)
+      transient keyword - prevents a variable from being serialized.
+
+Q19. What is a JIT compiler and thread ?
+Ans-> Thread - process which used for Concurrent execution, created using thread-class or runnable interface.
+      JIT(Just-In-Time) Compiler - JIT is part of JVM and it converts bytecode into native machine code at runtime.
+
+Q.20. Expain Java 8 Features ?
+Ans->  Lambda expressions (ex:- (a,b) -> a+b), 
+       Functional Interfaces(interface with only one abstract method, ex:- Runnnable, Comparator)
+       Streams APi (map,filter,reduce, ex:- list.stream().filter(x -> x>10).collect(...))
+       Date and Time api(java.time), ex:- LocalDate,LocalTime
+       Method References ex:- System.out::println
+
+Q21. Name of inbuilt functional interfaces in Java8?
+Ans-> Java 8 introduced functional interfaces mainly in 👉 java.util.function package
+      a. Predicate<T> - Takes input, returns boolean - ex: Predicate<Integer> isEven = x -> x % 2 == 0;
+      b. Function<T, R> - Takes input, returns output - ex: Function<String, Integer> length = str -> str.length(); 
+      c. Consumer<T> - Takes input, returns nothing - ex: Consumer<String> print = str -> System.out.println(str);
+      d. Supplier<T> - No input, returns value - ex: Supplier<Double> random = () -> Math.random();
+      
+Q22. JDK, JRE, & JVM ?
+Ans-> JDK : Development, JRE : Runtime, JVM : Execution engine
+JDK(Java Development Kit) : S/w Development kit Used to develop java applications, Used by developers. Contains JRE, Compiler (javac). Debugger Development tools(Javadoc,jdb,etc.).
+JRE(Java Runtime Environment) : Provides environment to run java programs. Used by users to run java apps. Contains JVM, core java libraries
+JVM(Java Virtual Machine) : excecute bytecode -> responsible for memory management, Garbage collection, security, platform independence.
+Note:
+Flow Example:- .java -> javac -> .class(bytecode) -> jvm -> output
+
+Q23. Explain class loader in java with examples.
+Ans-> Class loader is a jvm subsystem that loads .class files into memory dynamically at runtime. types of CL
+      a. Bootstrap classloader : loads java classes(string, object).
+      b. Extension (platform) classloader : loads classes from lib/ext.
+      c. Applicaion classloader : loads user-defined classes.
+
+Parent Delegation Model : JVM asks parent class loader first. Improves security and avoids duplicate loading.
+
+Ex: public class Test{
+      public static void main (String[] args){
+            System.out.println(Test.class.getClassLoader());
+            System.out.println(String.class.getClassLoader());
+      }
+} 
+o/p : 
+AppClassLoader
+null
+
+Q24. Explain public static void main(String[] args)
+Ans-> public - JVM must access it from anywhere
+      static - JVM doesn't create object to call main
+      void - JVM does not except return value.
+      String[] args - command-line arguments
+      Ex:- Java Test hello
+           args[0] = "Hello"
+Note: Main is static because JVM calls it without object creation.
+
+Q25. Explain System.out.println()?
+Ans-> System.out.println("Hello");
+      System - final class
+      out - static printstream object
+      println() - prints data + new line
+Internal flow:
+System ->printStream ->console
+Note: println is a method of printstream, not system.
+
+Q26. How to fix memory leak problems ?
+Ans-> A memory leak happens when: Objects are no longer needed but are still referenced, 
+      so the Garbage Collector (GC) cannot remove them.
+      Fix:
+      - Remove unnecessary references
+      - Use proper collection handling
+      - Close resources properly (Use try-with-resources)
+      - Clean up ThreadLocal & Avoid unbounded caches
+      - Deregister listeners
+      - Use Weak References
+      Tools to detect memory leaks
+      - MAT(Memory Analyzer Tool)
+      - JProfiler
+      - VisualVM
+      Memory leaks Cause
+      - outofMemoryError
+
+Q27. Difference between throw & throws ?
+Ans-> Throw                
+     - used inside method
+     - throws one execution
+     - throw is action
+     Throws
+     - used in method signature
+     - declare multiple executions
+     - throws is declaration 
+ex- throw new IOException();
+
+Q28. Marker Interface
+Ans-> No Methods, used for metadata, ex:- serializable, cloneable
+
+Q29. Transient keyword 
+Ans-> Prevents serialization
+      transient int passoword;
+
+Q20. Comparable   vs   Comparator
+Ans-> Natural Order    -> Custom Order
+   -> Compare TO       -> Compare
+
+Q21. Difference between checked and unchecked exceptions.
+Ans-> Checked Exceptions
+     - Checked at compile time
+     - must be handled using try-catch or throws
+     Ex: IOException
+         SQLException
+
+      Unchecked Exceptions
+      - Checked at runtime
+      - Extend Runtime Exception
+
+Ex:- NullPonterException
+     ArrayIndexOutOfBoundsException
+
+Note:- checked = recoverable, unchecked = programming mistakes
+
+Q22. Exception Propogation ?
+
+
+ // Spring Boot
+
+ Q11. What is @Controller and @RestController ?
+ Ans-> @Controller - returns views. Need @ResponseBody to return JSON.
+       @RestController - return data(JSON/XML) directly. Combined @Controller + @ResponseBody
+
+Q12. Explain use of @Qualifier annotation in Spring ?
+Ans-> @Qualifier is used to specify the exact bean to inject when multiple beans of the same type exist. Ex: Inject Car1 bean, not Car2.
+Note: - Spring Bean is object and managed by spring container using IOC and dependecy Injection.
+
+Q13. How does spring boot application start internally ?
+Ans-> Spring Boot starts with SpringApplication.run(), performs auto configuration, component scanning, initializes the context and finally starts the embedded server.
+
+Q14. How does services communicate in a microservices architecture ?
+Ans-> RestApI's(http), message queues / Event Streaming, Api gateway(central entry point).
+- sync - request-response and Aysnc -event driven
+
+Q15. What are the key components of a RESTful API ?
+Ans-> RESTful API consists of resources(url), Http methods,header, status code and request/response bodies to enables communication between client and server.
+
+Q16. Expain @Transactional propagation in Spring ?
+Ans-> Propogation defines how Transactions are handle between method calls, with REQUIRED(default) and REQUIRES_NEW being most commonly used.
+     - It defines how transactions behaves when one method calls another.
+
+// Hibernate & Database
+
+Q17. What is Difference between get() and load() in Hibernate ?
+Ans-> get() - return null if not found, fetch immediately.
+      load() - return proxy, throw exception if not found.
+
+Q18. Explain hibernate caching (1st Level vs 2nd Level) ?
+Ans-> 1st Level - session-level, default, not shared. 
+      2nd Level - sessionFactory-Level, optional, shared across sessions.
+
+Q19. What is the N+1 select problem in JPA and how do you fix it ?
+Ans-> N+1 problems occurs when one query loads parent and multiple queries load children; fix it using fetch joins, entity graphs, or batch fetching.
+
+Q20. Explain difference between Drop, Delete and Truncate ?
+Ans-> Delete - removes rows (can rollback)
+      Truncate - removes all rows fast (no rollback)
+      Drop - removes entire table structure + data
